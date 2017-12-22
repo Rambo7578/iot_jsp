@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public interface UserDAO {
 
-	public ArrayList<HashMap<String,Object>> selectUserLIst();
+	public ArrayList<HashMap<String,Object>> selectUserList();
 	public HashMap<String,Object>selectUser();
 	
 }
