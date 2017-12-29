@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+function movePage(url){
+	
+	 location.href=url;
+}
+function setEvent(){
+	var objs=document.getElementsByTagName("div");
+	for( var obj of objs){
+		if(obj.getAttribute("data-url")){
+		obj.onclick=movePage.bind(null,obj.getAttribute("data-url"));//bind() 알아두기
+		obj.style="cursor:poiner;";
+		alert(obj.style)
+		obj.style+="color=bule";
+		}
+	}
+}
+//
+
+</script>
+<body onload="setEvent()">
+<div >난 무소유</div>
+<div data-url="http://localhost/html/target.html">URL을 이용한 이동</div><br>
+<div data-url="/html/target.html">절대경로를 이용한 이동</div><br>
+<div data-url="./target.html">상대경로를 이용한1</div><br>
+<div data-url="target.html">상대경로를 이용한2</div><br>
+<div data-url="../target.html">상대경로를 이용한상위폴더</div><br>
+<div data-url="/target.html">상대경로를 이용한상위폴더</div><br>
+</body>
+</html>
