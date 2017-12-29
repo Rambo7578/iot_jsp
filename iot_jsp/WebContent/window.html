@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="누르지마!!!!!!" onclick="clickCount()">
+<input type="button" value="나와라 아들아" onclick="openChildWindow()">
+</body>
+<script>
+function openChildWindow(){
+	window.open("/test.html");
+}
+var cnt=1;
+var clickCount=function(){
+	alert(cnt++);
+}
+
+</script>
+</html>
