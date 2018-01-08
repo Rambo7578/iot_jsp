@@ -6,15 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 </head>
-<link rel="stylesheet" href="<%=rootPath%>/ui/css/sign.css" />
+<link rel="stylesheet" href="<%=rootPath%>/ui/css/login/style.css" />
+<link rel="stylesheet" href="<%=rootPath%>/ui/css/login/font-awesome.css" />
+<link rel="stylesheet" href="<%=rootPath%>/ui/css/login/demo.css" />
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/style_login.css" />
+<link rel="stylesheet" href="<%=rootPath%>/ui/css/sign.css" />
 <body>
-	<jsp:include page="/WEB-INF/view/common/header.jsp" flush="false" />
+<jsp:include page="/WEB-INF/view/common/header.jsp" flush="false" />
 	<div class="result_div"></div>
 	<div class="container">
 		<div class="starter-template">
-		
-			<form class="form-signin">
+				<section class="main">
+				<form class="form-2">
+				<form class="form-signin">
 				<h2 id="hText2" class="form-signin-heading">로그인</h2>
 				
 				<label for="userId" class="sr-only">ID</label> 
@@ -29,9 +33,15 @@
 					id="loginBtn" value="Login" onclick="checkValue()">
 					
 				<a href="/view/user/signin">회원가입</a>
-			</form>
-		</div>
-	</div>
+				</form>​​
+			</section>
+			
+
+		
+			
+    
+    
+    
 </body>
 <script>
 function checkValue(){
