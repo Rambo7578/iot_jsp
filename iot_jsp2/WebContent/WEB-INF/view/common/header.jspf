@@ -28,7 +28,7 @@ if(idx!=-1){
 
 	<div class="header-limiter">
 
-		<h1><a href="#">IOT_JSP<span>Company</span></a></h1>
+		<h1><a href="#">IOT_JSP<span> Company</span></a></h1>
 
 		<nav>
 			<a href="<%=rootPath%>/">Home</a>
