@@ -41,9 +41,7 @@ public class UserServlet extends HttpServlet {
 	}
 
 	public void doProcess(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-		req.setCharacterEncoding("utf-8");
-		res.setCharacterEncoding("utf-8");
-		res.setContentType("text/html;charset=utf-8");
+	System.out.println("encoding:"+req.getCharacterEncoding());
 		PrintWriter out = res.getWriter();
 		String uri = req.getRequestURI();
 		String cmd = getCommand(uri);
@@ -55,6 +53,7 @@ public class UserServlet extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("/view/user/login");
 			rd.forward(req, res);
 		} else if (cmd.equals("signin")) {
+			us.signin(req);
 			out.println(req.getAttribute("resStr"));
 			
 		} else if (cmd.equals("list")) {

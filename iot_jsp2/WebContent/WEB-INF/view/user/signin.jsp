@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="<%=rootPath%>/ui/css/style_login.css" />
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/sign.css" />
 <body>
-	<jsp:include page="/WEB-INF/view/common/header.jsp" flush="false" />
+	<jsp:include page="/WEB-INF/view/common/header.jspf" flush="false" />
 
 	<div class="container">
 		<div class="starter-template">
@@ -36,10 +37,8 @@
 					</tr>
 					<tr>
 						<th>반</th>
-						<td>
-							<select name="ciNo" id="ciNo" class="form-control">
-							</select>
-						</td>
+						<td><select name="ciNo" id="ciNo" class="form-control">
+						</select></td>
 					</tr>
 					<tr>
 						<th>주소</th>
@@ -47,10 +46,9 @@
 							class="form-control" placeholder="주소"></td>
 					</tr>
 					<tr>
-						<td colspan="2"> 
-							<input class="btn btn-lg btn-primary btn-block" type="button"
-								id="singnBtn" value="Signin" onclick="signin()">
-						</td>
+						<td colspan="2"><input
+							class="btn btn-lg btn-primary btn-block" type="button"
+							id="singnBtn" value="Signin" onclick="signin()"></td>
 					</tr>
 				</table>
 			</form>
@@ -66,12 +64,13 @@ function signin(){
 	var uiPwd = $("#uiPwd").val().trim();
 	var ciNo = $("#ciNo").val();
 	var address = $("#address").val().trim();
-	var param= {uiName:uiName, uiAge:uiAge, uiId:uiId, uiPwd:uiPwd,ciNo:ciNo,address:address};
-	param = "param=" + JSON.stringify(param);
+	var param= {uiName:uiName, uiAge:uiAge, uiId:uiId, uiPwd:uiPwd, ciNo:ciNo, address:address};
+	param = "param=" + JSON.stringify(param);	
+	
 	$.ajax({
 		url : '/user/signin',
 		type : 'post',
-		data : param,
+		data : param,		
 		success:function(res){
 			var obj = JSON.parse(res);
 			alert(obj.msg);
@@ -84,6 +83,7 @@ function signin(){
 		}		
 	})
 }
+
 $(document).ready(function(){
 	$.ajax({
 		url : '/class/list',

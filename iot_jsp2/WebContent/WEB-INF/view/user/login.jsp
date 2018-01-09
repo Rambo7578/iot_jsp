@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/login/demo.css" />
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/style_login.css" />
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/sign.css" />
+
 <body>
-<jsp:include page="/WEB-INF/view/common/header.jsp" flush="false" />
+<jsp:include page="/WEB-INF/view/common/header.jspf" flush="false" />
 	<div class="result_div"></div>
 	<div class="container">
 		<div class="starter-template">

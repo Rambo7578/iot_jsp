@@ -52,13 +52,16 @@ public class UserServiceImpl implements UserService {
 		String json = req.getParameter("param");
 		UserClass uc = gs.fromJson(json, UserClass.class);
 		int result = ud.insertUser(uc);
+		
 		HashMap<String, String> rm = new HashMap<String, String>();
 		rm.put("result", "no");
-		rm.put("mag", "실패 했다 젠장할");
+		rm.put("msg", "실패 했다 젠장할");
+	
 		if (result == 1) {
 			rm.put("result", "ok");
 			rm.put("msg", "성공했음");
 		}
+			
 		req.setAttribute("resStr", gs.toJson(rm));
 
 	}

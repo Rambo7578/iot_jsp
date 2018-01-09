@@ -6,6 +6,11 @@ public class ClassInfo {
 	private String ciName;
 	private String ciDesc;
 
+	@Override
+	public String toString() {
+		return "ClassInfo [ciNo=" + ciNo + ", ciName=" + ciName + ", ciDesc=" + ciDesc + "]";
+	}
+	
 	public int getCiNo() {
 		return ciNo;
 	}

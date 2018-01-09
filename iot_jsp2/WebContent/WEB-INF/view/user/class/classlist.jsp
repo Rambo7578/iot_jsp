@@ -19,7 +19,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col col-xs-6">
-								<h3 class="panel-title">User List</h3>
+								<h3 class="panel-title">Class List</h3>
 							</div>
 							<div class="col col-xs-6 text-right">
 								<input type="text" class="input">
@@ -28,16 +28,14 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<table id="grid1" data-key="uiNo"
+						<table id="grid1" data-key="ciNo"
 							class="table table-striped table-bordered table-list">
 							<thead>
 								<tr>
-									<th class="text-center" data-field="uiNo,ro">번호</th>
-									<th class="text-center" data-field="uiName,txt">이름</th>
-									<th class="text-center" data-field="uiAge,txt">나이</th>
-									<th class="text-center" data-field="uiId,ro">ID</th>
-									<th class="text-center" data-field="uiRegdate,ro">가입일자</th>
-									<th class="text-center" data-field="address,txt">주소</th>
+									<th class="text-center" data-field="ciNo,ro">번호</th>
+									<th class="text-center" data-field="ciName,txt">이름</th>
+									<th class="text-center" data-field="ciDesc,txt">반</th>
+									
 									<th class="text-center" data-field="BTN"><em
 										class="glyphicon glyphicon-asterisk"></em></th>
 								</tr>
@@ -52,12 +50,12 @@
 	</div>
 </body>
 <script>
-function deleteUser(uiNo){
+function deleteClass(ciNo){
 	var isDelete = confirm("진짜 지울라고?");
 	
-	var param="uiNo="+uiNo;
+	var param="ciNo="+ciNo;
 	if(isDelete){
-		$.ajax({url : '/user/delete',
+		$.ajax({url : '/class/delete',
 			type : 'post',
 			data : param,
 			dataType : 'json',
@@ -75,14 +73,13 @@ function deleteUser(uiNo){
 		})
 	}
 	}
-	function updateUser(uiNo){
-		var uiName=$("#uiName"+uiNo).val().trim();
-		var uiAge=$("#uiAge"+uiNo).val().trim();
-		var address=$("#address"+uiNo).val().trim();
-		var param={uiName:uiName,uiNo:uiNo,uiAge:uiAge,address:address};
+	function updateClass(ciNo){
+		var ciName=$("#ciName"+ciNo).val().trim();
+		var ciDesc=$("#ciDesc"+ciNo).val().trim();
+		var param={ciName:ciName,ciNo:ciNo,ciDesc:ciDesc};
 		param="param="+JSON.stringify(param);
 	
-		$.ajax({url : '/user/update',
+		$.ajax({url : '/class/update',
 			type : 'post',
 			data : param,
 			dataType : 'json',
@@ -107,7 +104,7 @@ $(document).ready(function(){
 	}
 	var keyCol=$("#grid1").attr("data-key");
 	$.ajax({
-		url : '/user/list',
+		url : '/class/list',
 		type : 'get',
 		success:function(res){
 			var list = JSON.parse(res);
@@ -118,8 +115,8 @@ $(document).ready(function(){
 				for(var field of colsInfo){
 					str += "<td class='text-center'>";
 					if(field=="BTN"){
-						str += '<a class="btn btn-default" onclick="updateUser(' + key + ')"><em class="glyphicon glyphicon-refresh"></em></a>';
-						str += '<a class="btn btn-danger" onclick="deleteUser(' + key + ')"><em class="glyphicon glyphicon-trash" "></em></a>';
+						str += '<a class="btn btn-default" onclick="updateClass(' + key + ')"><em class="glyphicon glyphicon-refresh"></em></a>';
+						str += '<a class="btn btn-danger" onclick="deleteClass(' + key + ')"><em class="glyphicon glyphicon-trash" "></em></a>';
 					}else{
 						var colName=field.split(",")[0];
 						var colType=field.split(",")[1];

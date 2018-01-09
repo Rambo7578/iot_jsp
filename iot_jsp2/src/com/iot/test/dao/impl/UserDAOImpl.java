@@ -98,22 +98,24 @@ public class UserDAOImpl implements UserDAO {
 		PreparedStatement ps = null;
 		try {
 			con = DBCon.getCon();
-			String sql = "insert into user_info(uiname, uiage, uiid, uipwd, cino, uiregdate, address)/r/n"
-					+ "values(?,?,?,?,?,now(),?)";
+			String sql = "insert into user_info(uiname, uiage, uiid, uipwd, address, uiregdate, cino)\r\n" + 
+					"values(?,?,?,?,?,now(),?);";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, uc.getUiName());
 			ps.setInt(2, uc.getUiAge());
 			ps.setString(3, uc.getUiId());
 			ps.setString(4, uc.getUiPwd());
-			ps.setInt(5, uc.getCiNo());
-			ps.setString(6, uc.getAddress());
+			ps.setString(5, uc.getAddress());
+			ps.setInt(6, uc.getCiNo());				
+			
 			return ps.executeUpdate();
+			
 		} catch (Exception e) {
+			
 			e.printStackTrace();
-		}finally {
-			DBUtil.closeAll(null,ps,con);
 			
-			
+		}finally {			
+			DBUtil.closeAll(null,ps,con);			
 		}
 		return 0;
 	}
